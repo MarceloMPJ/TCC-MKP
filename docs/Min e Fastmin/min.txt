@@ -1,0 +1,31 @@
+_Z7minimunii:
+.LFB1023:
+	.cfi_startproc
+	push	rbp
+	.cfi_def_cfa_offset 16
+	.cfi_offset 6, -16
+	mov	rbp, rsp
+	.cfi_def_cfa_register 6
+	mov	DWORD PTR [rbp-4], edi
+	mov	DWORD PTR [rbp-8], esi
+	mov	eax, DWORD PTR [rbp-4]
+
+-----
+	cmp	eax, DWORD PTR [rbp-8]     2
+	jge	.L6                        2
+	mov	eax, DWORD PTR [rbp-4]     0.5
+	jmp	.L8                        2
+.L6:
+	mov	eax, DWORD PTR [rbp-8]     0.5
+                                           7
+-----
+.L8:
+        pop	rbp
+        .cfi_def_cfa 7, 8
+	ret
+	.cfi_endproc
+.LFE1023:
+	.size	_Z7minimunii, .-_Z7minimunii
+	.globl	main
+	.type	main, @function
+

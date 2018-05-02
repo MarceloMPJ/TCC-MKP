@@ -4,8 +4,6 @@ using namespace std;
 #define T_MAX 2
 #define N_MAX 50
 #define W_MAX 1000
-#define PRIME1 524287
-#define PRIME2 7919
 
 int T, N;
 int b[N_MAX];

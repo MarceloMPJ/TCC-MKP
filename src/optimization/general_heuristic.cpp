@@ -4,7 +4,6 @@ using namespace std;
 #define T_MAX 50
 #define N_MAX 50
 #define PRIME1 524287
-#define PRIME2 7919
 
 const int HASH_MAX = 1000000;
 

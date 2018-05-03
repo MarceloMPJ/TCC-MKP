@@ -29,7 +29,7 @@ int main() {
     }
 
 
-    int dp[2][1000][1000];
+    int dp[2][C[0]][C[1]];
 
     for(int i = 0; i <= N; i++) {
         for(int j = 0; j <= C[0]; j++) {

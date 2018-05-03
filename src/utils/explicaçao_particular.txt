@@ -1,0 +1,2 @@
+particular_fastcmp é mais rapido no casos 1_, pq 1_ possui mais espaço na mochila que os demais casos de teste.
+visto que no algoritmo iterativo sao testadas toda a capacidade da mochila, o algoritmo recursivo sera mais rapido para esse caso

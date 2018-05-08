@@ -91,6 +91,14 @@ void update_weights(int *weights, int idx) {
     for(int i = 0; i < T; i++) weights[i] -= c[i][idx];
 }
 
+// Free memory
+vector< int * > memory;
+
+void free_memory() {
+    for(unsigned int i = 0; i < memory.size(); i++)
+        free(memory[i]);
+}
+
 int solve(int idx, int *weights) {
     if(idx < 0) return 0;
 
@@ -98,6 +106,8 @@ int solve(int idx, int *weights) {
     if(dp_solve != -1) return dp_solve;
 
     int *new_weights = (int *) malloc(sizeof(int) * T);
+    memory.push_back(new_weights);
+
     for(int i = 0; i < T; i++) new_weights[i] = weights[i];
 
     if(validate_weights(weights, idx)) {
@@ -107,6 +117,7 @@ int solve(int idx, int *weights) {
     }
 
     int ans = solve(idx-1, weights);
+
     return set_dp(idx, weights, ans);
 }
 
@@ -128,11 +139,14 @@ int main() {
     }
 
     int *vec = (int *) malloc(sizeof(int)*T);
+    memory.push_back(vec);
 
     for(int i = 0; i < T; i++)
         vec[i] = C[i];
 
     printf("%d\n", solve(N-1, vec));
+
+    free_memory();
 
     return 0;
 }
